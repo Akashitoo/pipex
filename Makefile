@@ -6,7 +6,7 @@
 #    By: abalasub <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/19 19:13:26 by abalasub          #+#    #+#              #
-#    Updated: 2024/05/13 01:10:13 by abalasub         ###   ########.fr        #
+#    Updated: 2024/05/22 13:05:42 by abalasub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,14 @@ $(NAME):$(OBJS)
 	echo "=> 𝙋𝙄𝙋𝙀𝙓 𝙀𝙎𝙏 𝙋𝙍𝙀̂𝙏 !🧪"
 
 clean:
+	$(MAKE) clean --no-print-directory -C ./libft
+	$(MAKE) clean --no-print-directory -C ./ft_printf
 	rm -rf $(OBJS)
 	echo "🔴 𝗧𝗢𝗨𝗦 𝗟𝗘𝗦 𝗢𝗕𝗝𝗘𝗧𝗦 𝗢𝗡𝗧 𝗘́𝗧𝗘́ 𝗦𝗨𝗣𝗣𝗥𝗜𝗠𝗘́ 🚮"
 
 fclean:	clean
+	$(MAKE) fclean --no-print-directory -C ./libft
+	$(MAKE) fclean --no-print-directory -C ./ft_printf
 	rm -rf $(NAME)
 	echo "🔴 𝙋𝙄𝙋𝙀𝙓 𝘼 𝙀́𝙏𝙀́ 𝙎𝙐𝙋𝙋𝙍𝙄𝙈𝙀́ 🚮"
 

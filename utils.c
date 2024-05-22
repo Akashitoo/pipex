@@ -6,7 +6,7 @@
 /*   By: abalasub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 22:46:41 by abalasub          #+#    #+#             */
-/*   Updated: 2024/05/13 15:19:20 by abalasub         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:55:22 by abalasub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
@@ -32,13 +32,6 @@ void	free_close(t_data *pipex)
 	close(pipex->pipefd[1]);
 	free_tab(pipex->args1);
 	free_tab(pipex->args2);
-}
-
-void	error_exit(t_data *pipex, char *error, int status)
-{
-	free_close(pipex);
-	perror(error);
-	exit(status);
 }
 
 char	**env_path(char **envp)
@@ -75,5 +68,5 @@ char	*get_path(char *cmd, char **envp, t_data *pipex, int last_cmd)
 		j++;
 	}
 	free_tab(paths);
-	return (error_exit(pipex, "command not found", last_cmd), NULL);
+	return (error_cmd_exit(pipex, cmd, last_cmd), NULL);
 }
